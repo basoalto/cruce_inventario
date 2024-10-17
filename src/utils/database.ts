@@ -3,7 +3,7 @@
 
 import { processCsvData } from './fileUtils'; 
 
-export const openDatabase = (dbName: string, index: number): Promise<IDBDatabase> => {
+export const openDatabase = (dbName: string): Promise<IDBDatabase> => {
     return new Promise((resolve, reject) => {
         // Verifica si IndexedDB está disponible
         if (!window.indexedDB) {
@@ -40,7 +40,7 @@ export const openDatabase = (dbName: string, index: number): Promise<IDBDatabase
 // Función para obtener los datos desde IndexedDB
 const getCsvDataFromIndexedDB = async (storeName: string, index: number) => {
     try {
-        const db = await openDatabase(storeName, index); // Abrir la base de datos
+        const db = await openDatabase(storeName); // Abrir la base de datos
 
         return new Promise((resolve, reject) => {
         const transaction = db.transaction(storeName, "readonly");

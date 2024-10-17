@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-function LoginPage() {
+function LoginPage(): JSX.Element {
   const {
     register,
     handleSubmit,
@@ -47,11 +47,11 @@ function LoginPage() {
     <SessionProvider>
       <Navbar /> {/* Agrega el Navbar aquí */}
       <div className="h-[calc(100vh-7rem)] flex justify-center items-center ">
-      <Card className="w-full max-w-sm border-2 border-gray-300 shadow-2xl rounded-lg">
-      <CardHeader>
+        <Card className="w-full max-w-sm border-2 border-gray-300 shadow-2xl rounded-lg">
+          <CardHeader>
             <CardTitle className="text-2xl">Login</CardTitle>
             <CardDescription>
-            Introduzca su dirección de correo electrónico para acceder a su cuenta.
+              Introduzca su dirección de correo electrónico para acceder a su cuenta.
             </CardDescription>
           </CardHeader>
 
@@ -70,7 +70,7 @@ function LoginPage() {
                   {...register("email", {
                     required: {
                       value: true,
-                      message: "Email is required",
+                      message: "Email es obligatorio",
                     },
                   })}
                   placeholder="juan@gmail.com"
@@ -78,7 +78,7 @@ function LoginPage() {
                 />
                 {errors.email && (
                   <span className="text-red-500 text-xs">
-                    {errors.email.message}
+                    {typeof errors.email.message === 'string' ? errors.email.message : 'Error desconocido'}
                   </span>
                 )}
               </div>
@@ -91,7 +91,7 @@ function LoginPage() {
                   {...register("password", {
                     required: {
                       value: true,
-                      message: "Password is required",
+                      message: "La contraseña es obligatoria",
                     },
                   })}
                   placeholder="******"
@@ -99,14 +99,14 @@ function LoginPage() {
                 />
                 {errors.password && (
                   <span className="text-red-500 text-xs">
-                    {errors.password.message}
+                    {typeof errors.password.message === 'string' ? errors.password.message : 'Error desconocido'}
                   </span>
                 )}
               </div>
 
               <CardFooter>
                 <Button type="submit" className="w-full">
-                  Sign in
+                  Iniciar sesión
                 </Button>
               </CardFooter>
             </form>
@@ -118,7 +118,3 @@ function LoginPage() {
 }
 
 export default LoginPage;
-
-
-
-

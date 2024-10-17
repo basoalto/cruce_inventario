@@ -73,7 +73,7 @@ export default function Page() {
 
   const getThirdObject = async () => {
     try {
-      const db: any = await openDatabase("csvStore2", 32);
+      const db: any = await openDatabase("csvStore2");
       const transaction = db.transaction("csvStore2", "readonly");
       const store = transaction.objectStore("csvStore2");
 

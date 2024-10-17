@@ -110,7 +110,7 @@ function DashboardPage1() {
   
   const getThirdObject = async () => {
     try {
-      const db: any = await openDatabase('csvStore1',32); 
+      const db: any = await openDatabase('csvStore1'); 
   
       const transaction = db.transaction("csvStore1", "readonly"); 
       const store = transaction.objectStore("csvStore1"); 
