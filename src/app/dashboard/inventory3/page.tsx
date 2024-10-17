@@ -86,10 +86,33 @@ function DashboardPage1() {
   const handleFileExport = () => {
     getThirdObject()
   };
+
+
+  interface ItemData {
+    Sucursal: string;
+    Estado: 'Robado' | 'Dar de Baja' | 'Por Comprar' | 'Activo' | string; // Estado puede ser uno de estos valores o un valor desconocido
+  }
+  
+  interface SucursalData {
+    totalCount: number;
+    Robado: number;
+    'Dar de Baja': number;
+    'Por Comprar': number;
+    Activo: number;
+  }
+  
+  type GroupedData = Record<string, SucursalData>;
 // Procesar los datos para el gráfico de árbol
-const processTreemapData = (jsonData: any[]) => {
+const processTreemapData = (jsonData: ItemData[]): Array<{
+  name: string;
+  value: number;
+  Robado: number;
+  darDeBaja: number;
+  porComprar: number;
+  Activo: number;
+}> => {
   // Agrupar los datos por sucursal y estado
-  const groupedData = jsonData.reduce((acc, item) => {
+  const groupedData: GroupedData = jsonData.reduce((acc: GroupedData, item: ItemData) => {
     const sucursal = item.Sucursal || 'Desconocida';
     const estado = item.Estado || 'Desconocido';
 
@@ -109,11 +132,11 @@ const processTreemapData = (jsonData: any[]) => {
 
     // Contar los estados solo si son parte de los estados predefinidos
     if (estado in acc[sucursal]) {
-      acc[sucursal][estado] += 1; // Incrementa el contador del estado
+      acc[sucursal][estado as keyof SucursalData] += 1; // Incrementa el contador del estado
     }
 
     return acc; // Devuelve el acumulador para la siguiente iteración
-  }, {}); 
+  }, {} as GroupedData); 
 
   // Convertir los datos en el formato necesario para el gráfico de árbol
   return Object.entries(groupedData).map(([sucursal, { totalCount, Robado, 'Dar de Baja': darDeBaja, 'Por Comprar': porComprar, Activo }]) => {
@@ -121,8 +144,8 @@ const processTreemapData = (jsonData: any[]) => {
       name: sucursal,        // La sucursal es la categoría principal
       value: totalCount,     // El valor total para la sucursal (suma de todos los estados)
       Robado,                // Contador de estado "Robado"
-      darDeBaja,            // Contador de estado "Dar de Baja"
-      porComprar,           // Contador de estado "Por Comprar"
+      darDeBaja,             // Contador de estado "Dar de Baja"
+      porComprar,            // Contador de estado "Por Comprar"
       Activo                 // Contador de estado "Activo"
     };
   });
