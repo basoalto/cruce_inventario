@@ -240,10 +240,12 @@ const processTreemapData = (jsonData: any[]) => {
   return null;
 }
 
-export default function Page() {
+const Page = () => {
   return (
     <Providers>
       <DashboardPage2 />
     </Providers>
   );
-}
+};
+
+export default Page;
