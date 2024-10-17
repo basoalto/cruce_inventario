@@ -47,7 +47,7 @@ function DashboardPage1() {
 
   useEffect(() => {
     if (chartData) { // Verifica que chartData no sea null
-      const transformedData = chartData.labels.map((label, index) => ({
+      const transformedData = chartData.labels.map((label: string, index: number) => ({
         name: label,
         value: chartData.datasets[0].data[index],
       }));
