@@ -113,7 +113,7 @@ function DashboardPage1() {
         const filteredCityData:any = combinedData.filter(city => city.latitude !== null && city.longitude !== null);
         console.log('filteredCityData', filteredCityData)
         // Actualiza el estado con los datos filtrados
-        setCityData('filteredCityData', filteredCityData);
+        setCityData(filteredCityData);
     }
 
 }, []); // Se ejecuta una vez al montar el componente

@@ -44,8 +44,8 @@ export default function Navbar({ componentName }: NavbarProps) {
         <Image
           src="/logo2.png"
           alt="Logo"
-          width={140} // especifica el ancho de la imagen
-          height={50} // especifica la altura de la imagen
+          width={150} // especifica el ancho de la imagen
+          height={150} // especifica la altura de la imagen
           priority={true} // si esta imagen es importante para LCP, usa esta opción
         />
         <span className="text-2xl font-bold text-sky-400">

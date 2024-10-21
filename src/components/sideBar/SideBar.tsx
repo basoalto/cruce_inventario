@@ -27,6 +27,9 @@ const SideBar = () => {
 
           {/* Enlaces de inventario */}
           <Link href="/dashboard/inventory1" passHref>
+            <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>Dashboard</div>
+          </Link>
+          <Link href="/dashboard/inventory1" passHref>
             <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>Inventario 1</div>
           </Link>
           <Link href="/dashboard/inventory2" passHref>
