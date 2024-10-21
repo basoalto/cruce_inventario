@@ -50,6 +50,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.7",
+    "@types/leaflet": "^1.9.13",
     "@types/next-auth": "^3.13.0",
     "@types/node": "^22.5.2",
     "@types/react": "^18",
