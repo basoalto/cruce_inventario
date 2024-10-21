@@ -1,45 +1,24 @@
 "use client";
 
-import {
-  Bell,
-  CircleUser,
-  Home,
-  LineChart,
-  Menu,
-  Package,
-  Package2,
-  Search,
-  ShoppingCart,
-  Users,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import Sidebar from "@/components/sideBar/SidebardShare";
-import TreemapSystemOperative from "@/components/Chart/treemapOperative";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
+import { GetServerSidePropsContext } from "next";
 import { useSession, signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
-import Providers from "../../../components/Providers";
-import Navbar from "@/components/Navbar";
-import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
-import { read, utils } from "xlsx";
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-alpine.css";
-import { exportAllToXLSX } from "@/utils/fileUtils";
-import DarkModeToggle from "@/components/DarkModeToggle/DarkModeToggle";
-import { openDatabase, saveCsvData, loadDataAndProcess } from "@/utils/database";
+import Sidebar from "@/components/sideBar/SidebardShare";
 import MetricsSection from "@/components/Table/MetricsSectionInventory2";
 import PieChartContainer from "@/components/Chart/PieChartContainer";
-import FileUploadButtons from "@/components/Table/FileUploadButtons";
 import InventoryTable from "@/components/Table/InventoriesTable";
+import FileUploadButtons from "@/components/Table/FileUploadButtons";
+import TreemapSystemOperative from "@/components/Chart/treemapOperative";
+import { read, utils } from "xlsx";
+import { exportAllToXLSX } from "@/utils/fileUtils";
+import { openDatabase, saveCsvData, loadDataAndProcess } from "@/utils/database";
+import Providers from "../../../components/Providers";
 
+// Ensure Chart registration
+import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 Chart.register(ArcElement, Tooltip, Legend);
 
-export function DashboardPage1() {
+function DashboardPage1() {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
   const { data: session, status } = useSession();
   const [csvData, setCsvData] = useState<any[]>([]);
