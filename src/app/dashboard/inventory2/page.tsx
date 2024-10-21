@@ -39,7 +39,7 @@ import InventoryTable from "@/components/Table/InventoriesTable";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
-export default function Page() {
+export function DashboardPage1() {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
   const { data: session, status } = useSession();
   const [csvData, setCsvData] = useState<any[]>([]);
@@ -188,4 +188,12 @@ export default function Page() {
   }
 
   return null;
+}
+
+export default function Page() {
+  return (
+    <Providers>
+      <DashboardPage1 />
+    </Providers>
+  );
 }
