@@ -1,11 +1,15 @@
 import Link from "next/link";
-import { Home, ShoppingCart, Package, Users, LineChart, Menu } from "lucide-react";
+import { Home, ShoppingCart, Package, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { signOut } from "next-auth/react";
-import { CardContent  } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 
-const Navbar = ({ toggleDarkMode }) => {
+// Define the expected type for toggleDarkMode
+interface NavbarProps {
+  toggleDarkMode: () => void;  // Function type that returns void
+}
+
+const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode }) => {
   return (
     <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
       <Sheet>
@@ -24,20 +28,12 @@ const Navbar = ({ toggleDarkMode }) => {
               <ShoppingCart className="h-4 w-4" /> Inventario 2
             </Link>
             <Link href="/dashboard/inventory3" className="flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-              <Package className="h-4 w-4" /> Inventario 
+              <Package className="h-4 w-4" /> Inventario 3
             </Link>
-            {/* <Link href="/dashboard/inventory4" className="flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-              <Users className="h-4 w-4" /> Inventario 4
-            </Link>
-            <Link href="/dashboard/inventory5" className="flex items-center gap-3 px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-              <LineChart className="h-4 w-4" /> Inventario 5
-            </Link> */}
-            <div className="mt-auto p-4">
-        </div>
+            <div className="mt-auto p-4"></div>
           </nav>
         </SheetContent>
       </Sheet>
-
     </header>
   );
 };
