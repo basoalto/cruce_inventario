@@ -83,7 +83,7 @@ export const saveCsvData = async (index: number, jsonData: any[], storeName: str
     setChartDataType: string,
     setChartData2Type: string) => {
     try {
-        const db = await openDatabase(storeName, index); // Abrir la base de datos
+        const db = await openDatabase(storeName); // Abrir la base de datos
         
         const transaction = db.transaction(storeName, "readwrite"); // Iniciar una transacción para el almacén específico
         const store = transaction.objectStore(storeName); // Acceder al almacén de objetos específico
