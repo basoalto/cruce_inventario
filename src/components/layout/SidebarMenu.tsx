@@ -4,9 +4,15 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaBars, FaTachometerAlt, FaCog, FaTimes } from 'react-icons/fa';
 
-const Sidebar = ({ isVisible, toggleSidebar }) => {
+interface SidebarProps {
+  isVisible: boolean;
+  toggleSidebar: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isVisible, toggleSidebar }) => {
   const [mounted, setMounted] = useState(false);
   const [activePath, setActivePath] = useState('');
+
 
   useEffect(() => {
     setMounted(true);
