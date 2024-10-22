@@ -19,7 +19,14 @@ import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 Chart.register(ArcElement, Tooltip, Legend);
 
 function DashboardPage1() {
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
+  // const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
+  const [darkMode, setDarkMode] = useState(false);  // Default value as false
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedDarkMode = localStorage.getItem("darkMode") === "true";
+      setDarkMode(savedDarkMode);
+    }
+  }, []);  // Only runs on the client
   const { data: session, status } = useSession();
   const [csvData, setCsvData] = useState<any[]>([]);
   const [chartData, setChartData] = useState<any>(null);

@@ -30,7 +30,8 @@ interface CityData {
   longitude: number | null;
 }
 function DashboardPage1() {
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");  const { data: session, status } = useSession();
+  // const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");  
+  const { data: session, status } = useSession();
   const [csvData, setCsvData] = useState<any[]>([]);
   const [chartData, setChartData] = useState<any>(null);
   const [chartData2, setChartData2] = useState<any>(null);
@@ -48,7 +49,13 @@ function DashboardPage1() {
   const [columns, setColumns] = useState<any[]>([]);
 
   const [treemapData, setTreemapData] = useState([]);
-
+  const [darkMode, setDarkMode] = useState(false);  // Default value as false
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedDarkMode = localStorage.getItem("darkMode") === "true";
+      setDarkMode(savedDarkMode);
+    }
+  }, []);  // Only runs on the client
   const cities = [
     { name: "Santiago", latitude: -33.4372, longitude: -70.6506 },
     { name: "Concepción", latitude: -36.8282, longitude: -73.0514 },

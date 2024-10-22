@@ -23,7 +23,8 @@ import TreemapChart  from "@/components/Chart/treemap";
 Chart.register(ArcElement, Tooltip, Legend);
 
 function DashboardPage1() {
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");  const { data: session, status } = useSession();
+  // const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");  
+  const { data: session, status } = useSession();
   const [csvData, setCsvData] = useState<any[]>([]);
   const [chartData, setChartData] = useState<any>(null);
   const [chartData2, setChartData2] = useState<any>(null);
@@ -32,7 +33,13 @@ function DashboardPage1() {
 
   const [loadingCSV, setLoadingCSV] = useState(true); // Track CSV data loading
   const [metrics, setMetrics] = useState({ total: 0, stock: 0, activo: 0, robado: 0 });
-
+  const [darkMode, setDarkMode] = useState(false);  // Default value as false
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedDarkMode = localStorage.getItem("darkMode") === "true";
+      setDarkMode(savedDarkMode);
+    }
+  }, []);  // Only runs on the client
 
   useEffect(() => {
     if (status === "unauthenticated") {

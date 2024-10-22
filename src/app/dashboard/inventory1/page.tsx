@@ -32,7 +32,12 @@ Chart.register(ArcElement, Tooltip, Legend);
 function DashboardPage1() {
   const [isSidebarVisible, setSidebarVisible] = useState(true); // Controla la visibilidad del Sidebar
   const [darkMode, setDarkMode] = useState(false);  // Default value as false
-
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedDarkMode = localStorage.getItem("darkMode") === "true";
+      setDarkMode(savedDarkMode);
+    }
+  }, []);  // Only runs on the client
   // const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");  
   const { data: session, status } = useSession();
   const [csvData, setCsvData] = useState<any[]>([]);
@@ -46,12 +51,7 @@ function DashboardPage1() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]); // Estado para checkboxes
   
   const [columns, setColumns] = useState<any[]>([]);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedDarkMode = localStorage.getItem("darkMode") === "true";
-      setDarkMode(savedDarkMode);
-    }
-  }, []);  // Only runs on the client
+
 
 
 
