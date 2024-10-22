@@ -1,5 +1,5 @@
-import { Check } from 'lucide-react'
-import Image from 'next/image'
+import { Check } from 'lucide-react';
+import Image from 'next/image';
 
 export default function MainBenefits() {
   const benefits = [
@@ -7,15 +7,17 @@ export default function MainBenefits() {
     'Ahorra tiempo con automatización de inventarios y reportes',
     'Minimiza riesgos de seguridad con visibilidad completa de tus activos',
     'Mejora la toma de decisiones con análisis predictivo basado en IA',
-  ]
+  ];
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-black">Beneficios Principales</h2>
-            <ul className="space-y-4 text-black">
+            <h2 className="text-3xl font-bold mb-6 text-black dark:text-white">
+              Beneficios Principales
+            </h2>
+            <ul className="space-y-4 text-black dark:text-gray-300">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-center">
                   <Check className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" />
@@ -36,5 +38,5 @@ export default function MainBenefits() {
         </div>
       </div>
     </section>
-  )
+  );
 }

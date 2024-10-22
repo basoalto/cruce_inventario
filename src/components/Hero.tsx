@@ -10,12 +10,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-800 text-white">
+    <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-800 text-white dark:from-gray-900 dark:to-gray-700">
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 text-center space-y-6 max-w-4xl mx-auto px-4">
         {/* Animación para el título */}
-        <motion.h1 
-          className="text-5xl md:text-7xl font-bold leading-tight"
+        <motion.h1
+          className="text-5xl md:text-7xl font-bold leading-tight text-white dark:text-gray-100"
           initial="hidden"
           animate="visible"
           variants={variants}
@@ -23,10 +23,10 @@ export default function Hero() {
         >
           Fortalece la Integridad de tus Activos Digitales
         </motion.h1>
-        
+
         {/* Animación para el párrafo */}
-        <motion.p 
-          className="text-xl md:text-2xl"
+        <motion.p
+          className="text-xl md:text-2xl text-white dark:text-gray-300"
           initial="hidden"
           animate="visible"
           variants={variants}
@@ -34,9 +34,9 @@ export default function Hero() {
         >
           Centraliza, analiza y optimiza tu inventario tecnológico con IA y gestión eficiente
         </motion.p>
-        
+
         {/* Animación para el botón */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={variants}

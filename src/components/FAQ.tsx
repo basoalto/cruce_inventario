@@ -35,9 +35,11 @@ const faqData = [
 
 export function FAQ() {
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-gray-100">
+          Preguntas Frecuentes
+        </h2>
         <Accordion
           type="single"
           collapsible
@@ -47,12 +49,12 @@ export function FAQ() {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white shadow-md rounded-lg mb-4"
+              className="bg-white dark:bg-gray-800 shadow-md rounded-lg mb-4"
             >
-              <AccordionTrigger className="text-gray-900">
+              <AccordionTrigger className="text-gray-900 dark:text-gray-100">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="text-gray-700">
+              <AccordionContent className="text-gray-700 dark:text-gray-300">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>
