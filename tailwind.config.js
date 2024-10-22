@@ -20,7 +20,7 @@ module.exports = {
 		colors: {
 			// primary: "#333333", 
 			// secondary: "#333333", 
-			// background: "#F5F5F5",
+			background: "#F5F5F5",
 			// text: "#333333", 
 			// border: "#E1E1E1", 
 		  border: "hsl(var(--border))",
