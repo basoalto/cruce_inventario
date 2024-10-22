@@ -31,8 +31,10 @@ Chart.register(ArcElement, Tooltip, Legend);
 
 function DashboardPage1() {
   const [isSidebarVisible, setSidebarVisible] = useState(true); // Controla la visibilidad del Sidebar
+  const [darkMode, setDarkMode] = useState(false);  // Default value as false
 
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");  const { data: session, status } = useSession();
+  // const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");  
+  const { data: session, status } = useSession();
   const [csvData, setCsvData] = useState<any[]>([]);
   const [chartData, setChartData] = useState<any>(null);
   const [chartData2, setChartData2] = useState<any>(null);
@@ -44,6 +46,14 @@ function DashboardPage1() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]); // Estado para checkboxes
   
   const [columns, setColumns] = useState<any[]>([]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedDarkMode = localStorage.getItem("darkMode") === "true";
+      setDarkMode(savedDarkMode);
+    }
+  }, []);  // Only runs on the client
+
+
 
   useEffect(() => {
     if (chartData) { // Verifica que chartData no sea null
@@ -82,9 +92,9 @@ function DashboardPage1() {
     console.log('chartData:', chartData);  // Agrega este log
   }, [chartData]);
   useEffect(() => {
-    // if (status === "unauthenticated") {
-    //   signIn();
-    // }
+    if (status === "unauthenticated") {
+      signIn();
+    }
     console.log("Cargando datos...");
     loadDataAndProcess(32, 'csvStore1', setCsvData, setChartData, setChartData2, setMetrics, 'ACTIVO', 'STOCK', 'ROBADO', 'Tipo', 'Propiedad_actual');
   }, [status]);
@@ -181,7 +191,7 @@ function DashboardPage1() {
     return <div>Cargando...</div>;
   }
 
-  // if (session) {
+  if (session) {
     return (
 
 <div className="flex bg-white dark:bg-gray-900 h-full"> {/* Contenedor principal */}
@@ -233,7 +243,7 @@ function DashboardPage1() {
     );
   };
   
-// }
+}
 
 export default function Page() {
   return (
