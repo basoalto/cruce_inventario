@@ -8,10 +8,6 @@ import Header from "@/components/layout/Header";
 import MainContent from "@/components/layout/MainContent";
 import NavbarInventory from "@/components/layout/NavBarInventory";
 
-
-
-
-
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
 import { read, utils } from 'xlsx';  // Librería para procesar archivos CSV/Excel
 import 'ag-grid-community/styles/ag-grid.css';
@@ -52,9 +48,6 @@ function DashboardPage1() {
   
   const [columns, setColumns] = useState<any[]>([]);
 
-
-
-
   useEffect(() => {
     if (chartData) { // Verifica que chartData no sea null
       const transformedData = chartData.labels.map((label: string, index: number) => ({
@@ -65,7 +58,6 @@ function DashboardPage1() {
       setTreemapData(transformedData);
     }
   }, [chartData]); // Se ejecuta cada vez que chartData cambia
-
   
   // Extrae y prepara los datos para chartData a partir de la columna "Tipo"
   useEffect(() => {
@@ -117,7 +109,6 @@ function DashboardPage1() {
     setDarkMode(prevDarkMode => !prevDarkMode); // Cambiar el estado
   };
   
-  
   const getThirdObject = async () => {
     try {
       const db: any = await openDatabase('csvStore1'); 
@@ -143,7 +134,6 @@ function DashboardPage1() {
       console.error("Error al interactuar con IndexedDB: ", error);
     }
   };
-  
 
   const handleFileExport = () => {
     getThirdObject()
@@ -158,8 +148,7 @@ function DashboardPage1() {
         const data = new Uint8Array(e.target?.result as ArrayBuffer);
         const workbook = read(data, { type: 'array' });
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const jsonData:any = utils.sheet_to_json(sheet);
-        
+        const jsonData:any = utils.sheet_to_json(sheet);    
 
         if(jsonData.length > 0){
           const dynamic = Object.keys(jsonData[0]).map((data) => ({
@@ -200,7 +189,6 @@ function DashboardPage1() {
 
   {/* Contenedor principal */}
   <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 h-full"> {/* Manteniendo h-full para el contenedor principal */}
-
 
     {/* header */}
     <NavbarInventory title="Inventario INV WEB" />

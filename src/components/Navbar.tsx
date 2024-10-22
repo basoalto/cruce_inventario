@@ -31,9 +31,9 @@ export default function Navbar({ componentName }: NavbarProps) {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Sobre Nosotros", href: "/about" },
-    { name: "Servicios", href: "/services" },
-    { name: "Contacto", href: "/contact" },
+    { name: "Sobre Nosotros", href: "#" },
+    { name: "Servicios", href: "#" },
+    { name: "Contacto", href: "#" },
   ];
 
   return (

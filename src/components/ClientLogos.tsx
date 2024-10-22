@@ -11,7 +11,7 @@ export default function ClientLogos() {
           {industries.map((industry, index) => (
             <div key={index} className="w-32 h-32 relative">
               <Image
-                src={"/assets/images/128x128.svg"}
+                src={"/128x128.svg"}
                 alt={industry}
                 layout="fill"
                 objectFit="contain"

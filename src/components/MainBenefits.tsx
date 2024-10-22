@@ -26,7 +26,7 @@ export default function MainBenefits() {
           </div>
           <div className="relative h-[400px]">
             <Image
-              src={"/images/image1.jpg"}
+              src={"/image1.jpg"}
               alt="Beneficios en acción"
               layout="fill"
               objectFit="cover"
