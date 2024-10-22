@@ -14,8 +14,8 @@ export default function MainBenefits() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6">Beneficios Principales</h2>
-            <ul className="space-y-4">
+            <h2 className="text-3xl font-bold mb-6 text-black">Beneficios Principales</h2>
+            <ul className="space-y-4 text-black">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-center">
                   <Check className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" />
