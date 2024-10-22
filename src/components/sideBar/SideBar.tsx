@@ -38,9 +38,9 @@ const SideBar = () => {
           <Link href="/dashboard/inventory3" passHref>
             <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>Inventario </div>
           </Link>
-          <Link href="/dashboard/inventory4" passHref>
+          {/* <Link href="/dashboard/inventory4" passHref>
             <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>Inventario 4</div>
-          </Link>
+          </Link> */}
           {/* <Link href="/dashboard/inventory5" passHref>
             <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>Inventario 5</div>
           </Link> */}
