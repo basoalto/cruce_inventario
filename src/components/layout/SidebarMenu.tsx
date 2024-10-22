@@ -13,7 +13,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible, toggleSidebar }) => {
   const [mounted, setMounted] = useState(false);
   const [activePath, setActivePath] = useState('');
 
-
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -32,18 +31,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible, toggleSidebar }) => {
   }
 
   return (
-    <div className={`w-48 min-h-screen bg-gray-100 p-4 shadow-md relative  ${isVisible ? 'block' : 'hidden'}`}>
+    <div className={`w-48 min-h-screen bg-gray-100 p-4 shadow-md relative ${isVisible ? 'block' : 'hidden'}`}>
       {/* Ícono de cierre en la esquina superior derecha */}
-      {isVisible ? (
-        <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4">
+        {isVisible ? (
           <FaTimes size={24} onClick={toggleSidebar} className="cursor-pointer text-black" />
-        </div>
-      ) : (
-        // Ícono de hamburguesa en la esquina superior derecha
-        <div className="absolute top-4 right-4">
+        ) : (
           <FaBars size={24} onClick={toggleSidebar} className="cursor-pointer text-black" />
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Sidebar contenido */}
       {isVisible && (
@@ -52,15 +48,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible, toggleSidebar }) => {
           <ul className="list-none p-0">
             {menuItems.map(item => (
               <li key={item.key} className="mb-2">
-                <Link href={item.href} legacyBehavior>
-                  <a
-                    className={`flex items-center p-2 rounded-md transition-colors 
-                      ${activePath === item.href ? 'bg-blue-500 text-white' : 'text-black'}`}
-                    onClick={() => setActivePath(item.href)}
-                  >
-                    {item.icon}
-                    <span className="ml-2">{item.title}</span>
-                  </a>
+                <Link href={item.href} className={`flex items-center p-2 rounded-md transition-colors 
+                  ${activePath === item.href ? 'bg-blue-500 text-white' : 'text-black'}`} onClick={() => setActivePath(item.href)}>
+                  {item.icon}
+                  <span className="ml-2">{item.title}</span>
                 </Link>
               </li>
             ))}

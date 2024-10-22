@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Twitter, Facebook, Mail, Phone } from 'lucide-react'
+import { Linkedin, Twitter, Facebook, Mail, Phone } from 'lucide-react';
 
 function Footer() {
   return (
@@ -9,8 +9,16 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Políticas</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:underline">Política de Privacidad</a></li>
-              <li><a href="#" className="hover:underline">Términos de Servicio</a></li>
+              <li>
+                <Link href="/politica-privacidad" className="hover:underline">
+                  Política de Privacidad
+                </Link>
+              </li>
+              <li>
+                <Link href="/terminos-servicio" className="hover:underline">
+                  Términos de Servicio
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -34,25 +42,6 @@ function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function MountainIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
   );
 }
 
