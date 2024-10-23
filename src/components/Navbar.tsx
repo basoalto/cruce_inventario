@@ -28,7 +28,6 @@ interface NavbarProps {
 export default function Navbar({ componentName }: NavbarProps) {
   const { theme, setTheme } = useTheme(); // Usar el hook para manejar el tema
 
-  // Estado para el toggle de dark mode
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
@@ -43,8 +42,6 @@ export default function Navbar({ componentName }: NavbarProps) {
 
   const [isOpen, setIsOpen] = useState(false);
   const { data: session } = useSession();
-
-  const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -73,23 +70,20 @@ export default function Navbar({ componentName }: NavbarProps) {
             </span>
           </div>
 
+          {/* Menú en pantallas grandes */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              {/* Toggle de modo oscuro con iconos */}
-              <div className="px-4 py-2">
-                <div className="flex items-center justify-center">
-                  <button
-                    onClick={toggleDarkMode}
-                    className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                  >
-                    {enabled ? (
-                      <Sun className="w-6 h-6 text-yellow-400" />
-                    ) : (
-                      <Moon className="w-6 h-6 text-gray-900 dark:text-white" />
-                    )}
-                  </button>
-                </div>
-              </div>
+              {/* Toggle de modo oscuro */}
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+              >
+                {enabled ? (
+                  <Sun className="w-6 h-6 text-yellow-400" />
+                ) : (
+                  <Moon className="w-6 h-6 text-gray-900 dark:text-white" />
+                )}
+              </button>
 
               {navItems.map((item) => (
                 <Link
@@ -100,6 +94,7 @@ export default function Navbar({ componentName }: NavbarProps) {
                   {item.name}
                 </Link>
               ))}
+
               {session ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -127,16 +122,50 @@ export default function Navbar({ componentName }: NavbarProps) {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-              <Button
-                onClick={() => signIn()}
-                className="bg-primary text-white hover:bg-secondary dark:bg-white dark:text-black dark:hover:bg-gray-300 px-3 py-2 rounded"
-              >
-                Login
-              </Button>
-
+                <Button
+                  onClick={() => signIn()}
+                  className="bg-primary text-white hover:bg-secondary dark:bg-white dark:text-black px-3 py-2 rounded"
+                >
+                  Login
+                </Button>
               )}
             </div>
           </div>
+
+{/* Menú en pantallas pequeñas */}
+<div className="md:hidden">
+  <Sheet>
+    <SheetTrigger asChild>
+      <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </Button>
+    </SheetTrigger>
+    <SheetContent className="bg-white dark:bg-gray-800 text-black dark:text-white">
+      <div className="flex flex-col space-y-4">
+        {navItems.map((item) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            className="text-secondary hover:text-primary text-sm font-medium dark:text-white"
+          >
+            {item.name}
+          </Link>
+        ))}
+        {/* Botón de inicio de sesión o perfil en pantallas pequeñas */}
+        {session ? (
+          <Button variant="ghost" onClick={() => signOut({ callbackUrl: "/" })}>
+            Logout
+          </Button>
+        ) : (
+          <Button onClick={() => signIn()} className="bg-primary text-white hover:bg-secondary dark:bg-white dark:text-black">
+            Login
+          </Button>
+        )}
+      </div>
+    </SheetContent>
+  </Sheet>
+</div>
+
         </div>
       </div>
     </nav>
