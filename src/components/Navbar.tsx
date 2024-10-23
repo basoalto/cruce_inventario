@@ -67,6 +67,7 @@ export default function Navbar({ componentName }: NavbarProps) {
           priority={true}
         />
       </Link>
+
         <span className="text-2xl font-bold text-primary">
           {componentName}
         </span>
@@ -74,6 +75,23 @@ export default function Navbar({ componentName }: NavbarProps) {
 
       <div className="hidden md:block">
         <div className="ml-10 flex items-center space-x-4">
+        {/* Toggle de modo oscuro con iconos */}
+        <div className="px-4 py-2">
+          <div className="flex items-center justify-center">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            >
+              {enabled ? (
+                <Sun className="w-6 h-6 text-yellow-400" />
+              ) : (
+                <Moon className="w-6 h-6 text-gray-900" />
+              )}
+            </button>
+          </div>
+        </div>
+
+
           {navItems.map((item) => (
             <Link
               key={item.name}
