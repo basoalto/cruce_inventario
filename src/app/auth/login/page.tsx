@@ -46,7 +46,7 @@ function LoginPage(): JSX.Element {
   return (
     <SessionProvider>
       <Navbar /> {/* Agrega el Navbar aquí */}
-      <div className="h-[calc(100vh-7rem)] flex justify-center items-center bg-white dark:bg-black">
+      <div className="h-[calc(100vh)] flex justify-center items-center bg-white dark:bg-black">
         <Card className="w-full max-w-sm border-2 border-gray-300 shadow-2xl rounded-lg">
           <CardHeader>
             <CardTitle className="text-2xl text-[#111827] dark:text-white">Login</CardTitle>

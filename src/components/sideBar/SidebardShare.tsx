@@ -31,7 +31,7 @@ const Sidebar = () => {
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
       <Link href="" className="flex items-center gap-2 font-semibold text-gray-900 dark:text-gray-100">
         <Image 
-          src="/logo2.png" // Ruta de la imagen desde la carpeta de assets
+          src={theme === "dark" ? "/logo blanco.png" : "/logo negro.png"}
           alt="Logo de la empresa" 
           width={130} // Especifica el ancho de la imagen
           height={130} // Especifica la altura de la imagen

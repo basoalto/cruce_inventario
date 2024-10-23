@@ -57,7 +57,7 @@ export default function Navbar({ componentName }: NavbarProps) {
           <div className="flex items-center">
             <Link href="/">
               <Image
-                src="/logo2.png"
+                src={theme === "dark" ? "/logo blanco.png" : "/logo negro.png"}
                 alt="Logo"
                 width={150}
                 height={150}
