@@ -46,11 +46,11 @@ function LoginPage(): JSX.Element {
   return (
     <SessionProvider>
       <Navbar /> {/* Agrega el Navbar aquí */}
-      <div className="h-[calc(100vh-7rem)] flex justify-center items-center ">
+      <div className="h-[calc(100vh-7rem)] flex justify-center items-center bg-white dark:bg-black">
         <Card className="w-full max-w-sm border-2 border-gray-300 shadow-2xl rounded-lg">
           <CardHeader>
-            <CardTitle className="text-2xl">Login</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl text-[#111827] dark:text-white">Login</CardTitle>
+            <CardDescription className="text-[#2563EB] dark:text-[#111827]">
               Introduzca su dirección de correo electrónico para acceder a su cuenta.
             </CardDescription>
           </CardHeader>
@@ -63,7 +63,7 @@ function LoginPage(): JSX.Element {
             )}
             <form onSubmit={onSubmit}>
               <div className="grid gap-2 mb-4">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-[#111827] dark:text-white">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -75,6 +75,7 @@ function LoginPage(): JSX.Element {
                   })}
                   placeholder="juan@gmail.com"
                   required
+                  className="border-[#2563EB] dark:border-[#111827]"
                 />
                 {errors.email && (
                   <span className="text-red-500 text-xs">
@@ -84,7 +85,7 @@ function LoginPage(): JSX.Element {
               </div>
 
               <div className="grid gap-2 mb-4">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password" className="text-[#111827] dark:text-white">Password</Label>
                 <Input
                   id="password"
                   type="password"
@@ -96,6 +97,7 @@ function LoginPage(): JSX.Element {
                   })}
                   placeholder="******"
                   required
+                  className="border-[#2563EB] dark:border-[#111827]"
                 />
                 {errors.password && (
                   <span className="text-red-500 text-xs">
@@ -105,7 +107,10 @@ function LoginPage(): JSX.Element {
               </div>
 
               <CardFooter>
-                <Button type="submit" className="w-full">
+                <Button
+                  type="submit"
+                  className="w-full bg-[#2563EB] text-white dark:bg-[#111827] dark:text-[#2563EB] hover:bg-[#1d4ed8] dark:hover:bg-gray-800"
+                >
                   Iniciar sesión
                 </Button>
               </CardFooter>

@@ -28,7 +28,10 @@ const NavbarInventory: React.FC<NavbarInventoryProps> = ({ title }) => {
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56" align="end" forceMount>
+        <DropdownMenuContent align="end" forceMount
+          className="w-56 align-end forceMount bg-black text-white dark:bg-white dark:text-black"
+
+        >
           <DropdownMenuItem
             onClick={async () => await signOut({ callbackUrl: "/" })}
           >
