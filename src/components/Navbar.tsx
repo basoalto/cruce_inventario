@@ -56,13 +56,24 @@ export default function Navbar({ componentName }: NavbarProps) {
         <div className="flex items-center justify-between h-16 text-black dark:text-white">
           <div className="flex items-center">
             <Link href="/">
-              <Image
-                src={theme === "dark" ? "/logo-blanco.png" : "/logo-negro.png"}
-                alt="Logo"
-                width={150}
-                height={150}
-                priority={true}
-              />
+    {/* Imagen para el tema oscuro */}
+    <Image
+      src="/logo-blanco.png"
+      alt="Logo blanco"
+      width={150}
+      height={150}
+      className={theme === "dark" ? "block" : "hidden"}
+      priority={true}
+    />
+    {/* Imagen para el tema claro */}
+    <Image
+      src="/logo-negro.png"
+      alt="Logo negro"
+      width={150}
+      height={150}
+      className={theme === "dark" ? "hidden" : "block"}
+      priority={true}
+    />
             </Link>
 
             <span className="text-2xl font-bold text-primary dark:text-white">

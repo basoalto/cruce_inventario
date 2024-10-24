@@ -30,13 +30,24 @@ const Sidebar = () => {
       <div className="flex h-4/5 max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
       <Link href="" className="flex items-center gap-2 font-semibold text-gray-900 dark:text-gray-100">
-        <Image 
-          src={theme === "dark" ? "/logo-blanco.png" : "/logo-negro.png"}
-          alt="Logo de la empresa" 
-          width={130} // Especifica el ancho de la imagen
-          height={130} // Especifica la altura de la imagen
-          priority // Esto asegura que la imagen se cargue de inmediato para mejorar LCP
-        />
+    {/* Imagen para el tema oscuro */}
+    <Image
+      src="/logo-blanco.png"
+      alt="Logo blanco"
+      width={150}
+      height={150}
+      className={theme === "dark" ? "block" : "hidden"}
+      priority={true}
+    />
+    {/* Imagen para el tema claro */}
+    <Image
+      src="/logo-negro.png"
+      alt="Logo negro"
+      width={150}
+      height={150}
+      className={theme === "dark" ? "hidden" : "block"}
+      priority={true}
+    />
       </Link>
     </div>
 
