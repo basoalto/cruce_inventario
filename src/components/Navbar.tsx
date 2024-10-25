@@ -56,24 +56,24 @@ export default function Navbar({ componentName }: NavbarProps) {
         <div className="flex items-center justify-between h-16 text-black dark:text-white">
           <div className="flex items-center">
             <Link href="/">
-    {/* Imagen para el tema oscuro */}
-    <Image
-      src="/logo-blanco.png"
-      alt="Logo blanco"
-      width={150}
-      height={150}
-      className={theme === "dark" ? "block" : "hidden"}
-      priority={true}
-    />
-    {/* Imagen para el tema claro */}
-    <Image
-      src="/logo-negro.png"
-      alt="Logo negro"
-      width={150}
-      height={150}
-      className={theme === "dark" ? "hidden" : "block"}
-      priority={true}
-    />
+            {/* Imagen para el tema oscuro */}
+            <Image
+              src="/logo-blanco.png"
+              alt="Logo blanco"
+              width={150}
+              height={150}
+              className={theme === "dark" ? "block" : "hidden"}
+              priority={true}
+            />
+            {/* Imagen para el tema claro */}
+            <Image
+              src="/logo-negro.png"
+              alt="Logo negro"
+              width={150}
+              height={150}
+              className={theme === "dark" ? "hidden" : "block"}
+              priority={true}
+            />
             </Link>
 
             <span className="text-2xl font-bold text-primary dark:text-white">
@@ -84,18 +84,6 @@ export default function Navbar({ componentName }: NavbarProps) {
           {/* Menú en pantallas grandes */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              {/* Toggle de modo oscuro */}
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
-              >
-                {enabled ? (
-                  <Sun className="w-6 h-6 text-yellow-400" />
-                ) : (
-                  <Moon className="w-6 h-6 text-gray-900 dark:text-white" />
-                )}
-              </button>
-
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -137,9 +125,20 @@ export default function Navbar({ componentName }: NavbarProps) {
                   onClick={() => signIn()}
                   className="bg-primary text-white hover:bg-secondary dark:bg-white dark:text-black px-3 py-2 rounded"
                 >
-                  Login
+                  Inicia sesión
                 </Button>
               )}
+            {/* Toggle de modo oscuro */}
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+              >
+                {enabled ? (
+                  <Sun className="w-6 h-6 text-yellow-400" />
+                ) : (
+                  <Moon className="w-6 h-6 text-gray-900 dark:text-white" />
+                )}
+              </button>
             </div>
           </div>
 
@@ -171,7 +170,23 @@ export default function Navbar({ componentName }: NavbarProps) {
           <Button onClick={() => signIn()} className="bg-primary text-white hover:bg-secondary dark:bg-white dark:text-black">
             Login
           </Button>
+          
         )}
+
+{/* Toggle de modo oscuro */}
+<div className="flex justify-center w-full">
+  <button
+    onClick={toggleDarkMode}
+    className="w-8 h-8 p-1 rounded-full bg-gray-200 dark:bg-gray-700 flex justify-center items-center"
+  >
+    {enabled ? (
+      <Sun className="w-4 h-4 text-yellow-400" />
+    ) : (
+      <Moon className="w-4 h-4 text-gray-900 dark:text-white" />
+    )}
+  </button>
+</div>
+
       </div>
     </SheetContent>
   </Sheet>

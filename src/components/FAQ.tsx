@@ -43,13 +43,13 @@ export function FAQ() {
         <Accordion
           type="single"
           collapsible
-          className="w-full max-w-3xl mx-auto"
+          className="w-full max-w-3xl mx-auto "
         >
           {faqData.map((item, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white dark:bg-gray-800 shadow-md rounded-lg mb-4"
+              className="bg-white dark:bg-gray-800 px-5 shadow-md rounded-lg mb-4"
             >
               <AccordionTrigger className="text-gray-900 dark:text-gray-100">
                 {item.question}
