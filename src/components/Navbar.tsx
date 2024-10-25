@@ -109,10 +109,10 @@ export default function Navbar({ componentName }: NavbarProps) {
                     forceMount
                     className="w-56 bg-white dark:bg-gray-800 text-black dark:text-white"
                   >
-                    <DropdownMenuItem>
+                    {/* <DropdownMenuItem>
                       <User className="mr-2 h-4 w-4" />
                       <span>Profile</span>
-                    </DropdownMenuItem>
+                    </DropdownMenuItem> */}
                     <DropdownMenuItem
                       onClick={async () => await signOut({ callbackUrl: "/" })}
                     >

@@ -12,7 +12,7 @@ interface PieChartContainerProps {
 
 const PieChartContainer: React.FC<PieChartContainerProps> = ({ data, title }) => (
   <div className="lg:w-full w-30 border border-gray-300 dark:border-gray-700 shadow rounded flex justify-center items-center p-4">
-    <div className="w-[60%] text-center">
+    <div className="lg:w-[50%] sm:w-[90%] text-center">
       <h3 className="mb-2 text-center">{title}</h3>
       {data ? (
         <Pie data={data} />

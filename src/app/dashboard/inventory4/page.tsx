@@ -285,7 +285,7 @@ function DashboardPage1() {
   <Sidebar />
 
   {/* Contenedor principal */}
-  <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 h-full"> {/* Manteniendo h-full para el contenedor principal */}
+  <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 h-full w-full"> {/* Manteniendo h-full para el contenedor principal */}
 
 
     {/* header */}

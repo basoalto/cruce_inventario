@@ -204,12 +204,12 @@ const processTreemapData = (jsonData: ItemData[]): Array<{
     <Sidebar />
 
     {/* Contenedor principal */}
-  <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+  <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 w-full">
     {/* Header */}
 
     {/* Título de la página */}
     <div className="flex items-center">
-      <h1 className="text-lg font-semibold md:text-2xl">Inventario de Bajas</h1>
+      <h1 className="text-lg font-semibold md:text-2xl ml-[38px]">Inventario de Bajas</h1>
     </div>
 
 {/* Contenedor del contenido principal */}

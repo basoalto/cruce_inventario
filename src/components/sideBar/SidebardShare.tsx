@@ -137,13 +137,19 @@ const Sidebar = () => {
               href="/dashboard/inventory2"
               className="flex items-center gap-3 px-3 py-2 transition-all hover:text-primary text-gray-700 dark:text-gray-300 dark:hover:text-primary"
             >
-              <ShoppingCart className="h-4 w-4" /> Inventario 2
+              <Package className="h-4 w-4" /> Inventario 2
             </Link>
             <Link
               href="/dashboard/inventory3"
               className="flex items-center gap-3 px-3 py-2 transition-all hover:text-primary text-gray-700 dark:text-gray-300 dark:hover:text-primary"
             >
               <Package className="h-4 w-4" /> Inventario 3
+            </Link>
+            <Link
+              href="/dashboard/inventory4"
+              className="flex items-center gap-3 px-3 py-2 transition-all hover:text-primary text-gray-700 dark:text-gray-300 dark:hover:text-primary"
+            >
+              <Package className="h-4 w-4" /> Inventario 4
             </Link>
             <div className="mt-auto p-4"></div>
           </nav>

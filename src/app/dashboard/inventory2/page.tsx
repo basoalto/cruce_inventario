@@ -144,11 +144,11 @@ function DashboardPage1() {
     return (
       <div className={`flex h-screen ${darkMode ? "dark" : ""}`}>
         <Sidebar />
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-          <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl">Inventario Proactiva</h1>
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 w-full">
+          <div className="flex items-center w-full">
+          <h1 className="text-lg font-semibold md:text-2xl ml-[38px]">Inventario Proactiva</h1>
           </div>
-          <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
+          <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm w-full">
             <div className="flex justify-center p-5">
               <div className="max-w-5xl w-full mt-8">
                 <MetricsSection metrics={metrics} />
