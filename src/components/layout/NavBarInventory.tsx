@@ -14,10 +14,11 @@ interface NavbarInventoryProps {
 
 const NavbarInventory: React.FC<NavbarInventoryProps> = ({ title }) => {
   return (
-    <div className="flex items-center justify-between">
-      <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100 md:text-2xl">
-        {title}
-      </h1>
+    <div className="flex items-center justify-between ">
+    <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100 md:text-2xl ml-[45px] sm:ml-4 md:ml-0">
+      {title}
+    </h1>
+
       
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
