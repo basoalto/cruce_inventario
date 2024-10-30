@@ -47,7 +47,7 @@ export default function Navbar({ componentName }: NavbarProps) {
     { name: "Inicio", href: "/" },
     { name: "Sobre Nosotros", href: "#" },
     { name: "Servicios", href: "#" },
-    { name: "Contacto", href: "#" },
+    { name: "Contacto", href: "/contact" }, // Solo el enlace, sin el componente
   ];
 
   return (

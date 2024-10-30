@@ -47,10 +47,10 @@ function LoginPage(): JSX.Element {
 <SessionProvider>
   <Navbar />
   <div className="h-[calc(100vh)] flex justify-center items-center bg-white dark:bg-black">
-    <Card className="w-full max-w-sm border-2 border-gray-300 shadow-2xl rounded-lg">
+    <Card className="w-full max-w-sm border-2 border-gray-300 shadow-2xl rounded-lg ms:w-[80%]">
       <CardHeader>
         <CardTitle className="text-2xl text-secondary dark:text-white">Inicia sesión</CardTitle>
-        <CardDescription className="text-primary dark:text-secondary">
+        <CardDescription className="text-secondary dark:text-white">
           Introduzca su dirección de correo electrónico para acceder a su cuenta.
         </CardDescription>
       </CardHeader>
